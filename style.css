@@ -71,7 +71,7 @@ button:active {
 	transform: scale(0.95);
 }
 
-#error{
+.error1{
     color: red;
     font-weight: bold;
     display: none;
@@ -82,5 +82,9 @@ button:active {
     font-weight: bold;
     font-size: 25px;
     margin-bottom: 5px;
+    display: none;
+}
+
+.resultado { 
     display: none;
 }

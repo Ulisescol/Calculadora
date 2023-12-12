@@ -2,7 +2,7 @@ let boton = document.getElementById('calcular')
 let vol = document.getElementById('vol')
 let flu = document.getElementById('flu')
 let mant = document.getElementById('mant')
-let error = document.getElementById("mensajeError") 
+let error1 = document.getElementById("mensajeError") 
 let input = document.getElementById("peso")
 boton.addEventListener('click', calcular)
 
@@ -10,7 +10,14 @@ function calcular(){
 let peso = document.getElementById("peso").valueAsNumber
 let resultado
 
-if (peso<=30){
+if (peso == 0) {
+    error1.style.display = 'block'
+    error1.innerHTML = "debes ingresar un número mayor a 0"
+    vol.style.display = "none"
+    flu.style.display = "none"
+    mant.style.display = "none"
+} 
+else if (peso<=30){
     resultado = Holliday()
     vol.style.display = "block"
     vol.innerHTML = resultado + " cc" 
@@ -18,22 +25,16 @@ if (peso<=30){
     flu.innerHTML = (resultado / 24).toFixed(0) + " cc/hr"
     mant.style.display = "block"
     mant.innerHTML = (resultado * 1.5) + " m+m/2" 
-    error.style.display = 'none'
+    error1.style.display = 'none'
 }
-else if (peso == 0) {
-    error.style.display = 'block'
-    error.innerHTML = "debes ingresar un número mayor a 0"
-    vol.style.display = "none"
-    flu.style.display = "none"
-    mant.style.display = "none"
-} 
 else{
     resultado = Superficie()
     vol.style.display = "block"
     vol.innerHTML = (resultado * 1500).toFixed(0)  + " cc (x1500)" 
     flu.style.display = "block"
     flu.innerHTML = (resultado * 2000).toFixed(0) + " cc(x2000)" 
-    error.style.display = 'none'
+    mant.style.display = "none"
+    error1.style.display = 'none'
 }
 
 function Holliday() {
